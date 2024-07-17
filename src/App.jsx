@@ -16,6 +16,8 @@ function App() {
     duration: 10  
   });
 
+  const inputIsValid = userInput.duration >= 1;
+
   // Fonction qui doit être déclenché à chaque fois que nous modifions la valeur
   // des champs de saisies afin de pouvoir mettre jour l'etat 
   function handleChange(inputIdentifier, newValue){
@@ -31,8 +33,11 @@ function App() {
   return (
     <>
       <Header />
-      <UserInput onChangeInput={handleChange} />
-      <Results input={userInput} />
+      <UserInput userInput={userInput} onChangeInput={handleChange} />
+      {!inputIsValid && (
+          <p className="center">Please enter a duration greater than zero.</p>
+      )}
+      {inputIsValid && <Results input={userInput} />}
     </>
   )
 }

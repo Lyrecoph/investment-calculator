@@ -8,7 +8,7 @@ export default function Results({input}) {
         resultsData[0].annualInvestment;
 
     return(
-        <table>
+        <table id='result'>
             <thead>
                 <tr>
                     <th>Year</th>
